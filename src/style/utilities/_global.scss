@@ -1,0 +1,37 @@
+@import "./variables";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font: {
+    family: $body-font;
+    size: 20px;
+  }
+}
+
+$header-array: (2, 1.6, 1.2, 1);
+$line-height: (2.8, 2.1, 2.1, 1.4);
+
+@for $i from 1 through length($header-array) {
+  h#{$i} {
+    margin-bottom: 1.4rem;
+    line-height: nth($line-height, $i) + rem;
+    font: {
+      size: nth($header-array, $i) + rem;
+      family: $header-font;
+    }
+    text-rendering: optimizeLegibility;
+  }
+}
+
+p {
+  margin-bottom: 1.4rem;
+  letter-spacing: 0.03em;
+  font: {
+    size: 0.8rem;
+    weight: 600;
+  }
+}
